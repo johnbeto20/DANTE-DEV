@@ -1,0 +1,740 @@
+:root {
+    --bg-fond: url(../img/fondo-vinieta-inicio.jpg) no-repeat bottom center;
+    --color-primary: #e7975a;
+    --blanco: #fff;
+    --color-text: #281c10;
+    --color-title: #19274c;
+    --color-infierno: #b6d1e2;
+    --color-purgatorio: #cfd1a3;
+    --color-Paraiso: #edc88e;
+    --color-fondo-imagen: #f9f4ee;
+    --color-epigrafe: #df6f23
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-fondo-imagen);
+    border-radius: 5px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-fondo-imagen);
+}
+
+
+/* width */
+
+.modal ::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+.modal ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Handle */
+
+.modal ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-epigrafe);
+}
+
+@keyframes hideIntro {
+    0% {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        top: -100%;
+    }
+}
+
+.hideIntro {
+    animation: hideIntro 1s ease-in forwards;
+}
+
+body,
+html,
+main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #000;
+}
+
+button {
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    height: 100%;
+}
+
+.col-5 {
+    width: 50%;
+}
+
+.btn {
+    background-color: var(--color-primary);
+    padding: 0 20px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 1.2em;
+    border: none;
+}
+
+.btn:hover,
+.btn:focus {
+    background: var(--color-epigrafe);
+}
+
+.btn__iniciar {
+    position: absolute;
+    color: #fff;
+    top: 40px;
+    right: 40px;
+}
+
+.intro,
+.interactive-map,
+.modal {
+    width: 100%;
+    height: 100%;
+}
+
+.intro {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background: var(--bg-fond);
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+    position: absolute;
+}
+
+.intro__image {
+    text-align: center;
+}
+
+.intro__text {
+    padding: 3em 2em 3em 0;
+    color: var(--color-text);
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+@media screen and (max-width: 768px) {
+    .intro__text {
+        overflow: auto;
+        height: 70vh;
+        padding: .5em 1em .5em 0;
+        font-size: 1em;
+    }
+}
+
+.intro__title {
+    color: var(--color-title);
+    font-size: 3em;
+    line-height: 0.8em;
+}
+
+.intro__image img {
+    max-height: 100vh;
+    margin: 0 auto;
+    display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    .intro__image img {
+        max-height: 65vh;
+    }
+    .intro__title {
+        color: var(--color-title);
+        font-size: 2.5em;
+        line-height: 1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .intro__title {
+        font-size: 2em;
+    }
+}
+
+.interactive-map {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    max-width: 1346px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.interactive-map__title {
+    position: absolute;
+    height: 300px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+.interactive-map__title h2 {
+    color: #f79a5a;
+    font-size: 2.5em;
+    margin-left: 10%;
+}
+
+.interactive-map__title span {
+    display: inline-block;
+    width: 100%;
+    font-size: .5em;
+    font-weight: 400;
+}
+
+.interactive-map .interactive-map__fondo {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.interactive-map .interactive-map__lineas {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .interactive-map__title {
+        height: 130px;
+        bottom: 41vh;
+    }
+    .interactive-map__title h2 {
+        margin-left: 5%;
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .interactive-map__fondo,
+    .interactive-map__lineas {
+        display: none;
+    }
+    .interactive-map {
+        background: url(../img/mobile/font-mobile.jpg) center;
+        background-size: cover;
+    }
+}
+
+.modal {
+    z-index: 3;
+    top: 0;
+    display: flex;
+    position: absolute;
+    right: 100%;
+    background: var(--color-fondo-imagen);
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s ease;
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+    right: 0;
+}
+
+.close {
+    font-size: 30px;
+    color: var(--color-epigrafe);
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transform: scale(1.4, 1);
+    display: inline-block;
+    z-index: 3;
+}
+
+.close:before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(223, 111, 35, 0.2);
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.close:hover:before,
+.close:focus:before {
+    opacity: 1;
+}
+
+.interactive-map ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .interactive-map ul {
+        position: inherit;
+    }
+}
+
+.element {
+    width: 12%;
+    height: 70px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+}
+
+.element:hover,
+.element:focus {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.element:active {
+    transform: scale(1.08);
+}
+
+@keyframes movin {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+.element__0 {
+    width: 10%;
+    height: 70px;
+    top: 35vw;
+    left: 16%;
+    background: url(../img/momento-0.PNG) no-repeat left;
+    background-size: calc(100% * 2);
+}
+
+.element__0.active,
+.element__1.active,
+.element__3.active,
+.element__4.active,
+.element__6.active,
+.element__7.active,
+.element__9.active {
+    animation: movin 0.2s steps(1) forwards;
+}
+
+.element__2.active,
+.element__5.active,
+.element__8.active {
+    animation: movin 0.2s steps(2) forwards;
+}
+
+.element__1 {
+    width: 5.9%;
+    height: 84px;
+    top: 45vw;
+    left: 21.8%;
+    background: url(../img/momento-1.PNG) no-repeat left;
+    background-size: calc(100% * 2);
+}
+
+.element__2 {
+    width: 4.5%;
+    height: 50px;
+    top: 43.8vw;
+    left: 34.5%;
+    background: url(../img/momento-2.PNG) no-repeat left;
+    background-size: calc(100% * 3);
+}
+
+.element__3 {
+    width: 4.5%;
+    height: 50px;
+    top: 45.5vw;
+    right: 32%;
+    background: url(../img/momento-3.PNG) no-repeat left;
+    background-size: calc(100% * 2);
+}
+
+.element__4 {
+    width: 3.5%;
+    height: 55px;
+    top: 26.5vw;
+    right: 32.5%;
+    background: url(../img/momento-4.PNG) no-repeat left;
+    background-size: calc(100% * 2);
+}
+
+.element__5 {
+    width: 6%;
+    height: 95px;
+    top: 16vw;
+    right: 13.5%;
+    background: url(../img/momento-5.PNG) no-repeat left;
+    background-size: calc(100% * 3);
+}
+
+.element__6 {
+    width: 2.8%;
+    height: 50px;
+    top: 20vw;
+    right: 45%;
+    background: url(../img/momento-6.PNG) no-repeat left;
+    background-size: calc(100% * 2);
+}
+
+.element__7 {
+    width: 6%;
+    height: 60px;
+    top: 6vw;
+    left: 12%;
+    background: url(../img/momento-7.PNG) no-repeat left;
+    background-size: calc(100% * 2);
+}
+
+.element__8 {
+    width: 14%;
+    height: 174px;
+    top: 3vw;
+    left: 41.6%;
+    background: url(../img/momento-8.PNG) no-repeat left;
+    background-size: calc(100% * 3);
+}
+
+.element__9 {
+    width: 7%;
+    height: 100px;
+    top: 1vw;
+    right: 13%;
+    background: url(../img/momento-9.PNG) no-repeat left;
+    background-size: calc(100% * 2);
+}
+
+@media screen and (min-width: 1347px) {
+    .element__0 {
+        top: 470px;
+    }
+    .element__1 {
+        top: 645px;
+    }
+    .element__2 {
+        top: 590px;
+    }
+    .element__3 {
+        top: 633px;
+    }
+    .element__4 {
+        top: 359px;
+    }
+    .element__5 {
+        top: 222px;
+    }
+    .element__6 {
+        top: 273px;
+    }
+    .element__7 {
+        top: 90px;
+    }
+    .element__8 {
+        top: 47px;
+    }
+    .element__9 {
+        top: 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .element__0 {
+        width: 9%;
+        top: 34vw;
+    }
+    .element__1 {
+        width: 4.9%;
+        height: 57px;
+        top: 48.5vw;
+        left: 22.8%;
+    }
+    .element__2 {
+        width: 4.5%;
+        height: 50px;
+        top: 43.8vw;
+        left: 34.5%;
+    }
+    .element__3 {
+        top: 46.5vw;
+    }
+    .element__6 {
+        height: 30px;
+    }
+    .element__7 {
+        width: 6%;
+        height: 60px;
+        top: 6vw;
+        left: 12%;
+    }
+    .element__8 {
+        height: 134px;
+    }
+    .element__9 {
+        width: 7%;
+        height: 100px;
+        top: 1vw;
+        right: 13%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .element__0 {
+        height: 47px;
+    }
+    .element__1 {
+        width: 4.2%;
+        height: 40px;
+    }
+    .element__2 {
+        width: 3.5%;
+        height: 30px;
+        top: 43.3vw;
+        left: 34.8%;
+    }
+    .element__3 {
+        top: 46.5vw;
+        width: 3.5%;
+        height: 26px;
+    }
+    .element__4 {
+        width: 2.5%;
+        height: 33px;
+    }
+    .element__5 {
+        height: 45px;
+    }
+    .element__6 {
+        height: 17px;
+    }
+    .element__8 {
+        width: 13%;
+        height: 94px;
+    }
+    .element__9 {
+        width: 6%;
+        height: 60px;
+    }
+}
+
+.element img {
+    width: 100%;
+}
+
+.modal {
+    flex-direction: row-reverse;
+}
+
+.modal__content {
+    padding: 0 5%;
+    width: 60%;
+}
+
+.modal__image {
+    padding: 0 5%;
+    width: 40%;
+    opacity: 0;
+    text-align: center;
+    overflow: auto;
+    transform: translate(0, 100px);
+    transition: all .8s ease-in-out;
+}
+
+.modal__image img {
+    padding: 80px 0 20px 0;
+    height: 70vh;
+    margin: 0 auto;
+    display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    .modal__image img {
+        height: 60vh;
+    }
+}
+
+.modal__image span {
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.modal__image i {
+    opacity: 0.6;
+}
+
+.modal__content {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-30%, 0);
+    transition: all 1s ease-in-out;
+}
+
+.modal__content[data-status="Infierno"] {
+    background: var(--color-infierno);
+}
+
+.modal__content[data-status="Purgatorio"] {
+    background: var(--color-purgatorio);
+}
+
+.modal__content[data-status="Paraíso"] {
+    background: var(--color-Paraiso);
+}
+
+.modal.show .modal__content {
+    transform: translate(0, 0)
+}
+
+.modal.show .modal__image {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.modal__header {
+    display: flex;
+    align-items: flex-end;
+}
+
+.modal__header--text {
+    width: 100%;
+}
+
+.modal__icon {
+    width: 160px;
+}
+
+.modal__icon img {
+    width: 100%;
+}
+
+.modal__status,
+.modal__title {
+    color: var(--color-title);
+    margin: 0;
+    font-size: 4em;
+}
+
+.modal__status {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.modal__epigrafe {
+    color: var(--color-epigrafe);
+    font-weight: bold;
+    margin: 40px 0;
+}
+
+.modal__text {
+    width: 100%;
+    overflow: auto;
+    padding: 0 20px 0 0;
+    box-sizing: border-box;
+    color: var(--color-text);
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+
+}
+.modal__epigrafe:after,
+.modal__epigrafe:before {
+    content: '"';
+}
+@media screen and (max-width: 768px) {
+    .modal__content {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .modal__epigrafe {
+        margin: 20px 0;
+    }
+    
+    .modal__status,
+    .modal__title {
+        font-size: 2em;
+    }
+    
+    .modal__icon {
+        width: 120px;
+    }
+    
+    .modal__text {
+        font-size: 1em;
+        line-height: 1.4em;
+    }
+    
+    .modal__image img {
+        height: 50vh;
+    }
+}

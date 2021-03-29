@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <title>1 2 3 por Dante</title>
+</head>
+
+<body>
+    <main>
+        <section id="section1" class="intro" role="Introducción de la aplicación">
+            <div class="col-5 intro__image" aria-label="imagen de la casa">
+                <img src="img/image-house.png" alt="">
+            </div>
+            <div class="col-5 intro__text">
+                <h1 class="intro__title">Travesía al Paraíso</h1>
+                <p>La Divina Comedia ha dejado una huella imborrable que se extiende desde los trabajos realizados por incontables artistas hasta la historia de un niño y su pelota. Explora la casa del pequeño Dante y descubre algunos símbolos presentes
+                    en otras adaptaciones de este poema escrito por el italiano Dante Alighieri entre los siglos XIII y XIV. </p>
+                <p>La traducción de los versos al castellano que encontrarás en este recorrido proviene de la edición crítica a cargo de Giorgio Petrocchi y Luis Martínez de Merlo.</p>
+                <button class="btn btn__iniciar" id="btnStart" aria-label="Presiona enter para niciar el recorrido">Inicia el recorrido</button>
+            </div>
+        </section>
+        <section id="section2" class="interactive-map" role="mapa de interacción de vistas">
+            <div class="interactive-map__title">
+                <h2 class="intro__title"><span>¡1 2 3 por Dante!</span>Travesía al Paraíso</h2>
+            </div>
+            <img class="interactive-map__fondo" src="img/Imagen-General.JPG" alt="">
+            <img class="interactive-map__lineas" src="img/lineas.PNG" alt="lineas">
+            <ul id="elements">
+                <li id="element0" class="element element__0" aria-label="vestíbulo"></li>
+                <li id="element1" class="element element__1" aria-label="Gerión"></li>
+                <li id="element2" class="element element__2" aria-label="El limbo"></li>
+                <li id="element3" class="element element__3" aria-label="fraude"></li>
+                <li id="element4" class="element element__4" aria-label="isleta"></li>
+                <li id="element5" class="element element__5" aria-label="el sueño"></li>
+                <li id="element6" class="element element__6" aria-label="Beatriz"></li>
+                <li id="element7" class="element element__7" aria-label="Venus"></li>
+                <li id="element8" class="element element__8" aria-label="la cruz"></li>
+                <li id="element9" class="element element__9" aria-label="el Empíreo"></li>
+            </ul>
+        </section>
+        <section id="modal" class="modal" role="modal">
+            <span id="closeModal" class="close" aria-label="Cerrar ventana">X</span>
+            <div class="modal__image" aria-label="imagen de la casa">
+                <img id="modalImage" src="img/image-house.jpg" alt="">
+                <span id="modalImagenText">imagen text</span>
+            </div>
+            <div class="modal__content" id="modalContent" data-status="hola">
+                <div class="modal__header">
+                    <div class="modal__header--text">
+                        <span id="modalStatus" class="modal__status">Status</span>
+                        <h2 id="modalTitle" class="modal__title">title</h2>
+                    </div>
+                    <span class="modal__icon">
+                        <img id="modalIcon" src="img/momento-0.png" alt="">
+                    </span>
+                </div>
+                <p id="modalEpigrafe" class="modal__epigrafe">epigrafe</p>
+                <div class="modal__text">
+                    <p id="modalText1">text 1</p>
+                    <h3 id="modalTitleAbout">title about</h3>
+                    <p id="modalText2">text 2</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
