@@ -43,21 +43,24 @@
 
 /* width */
 
-.modal ::-webkit-scrollbar {
+.modal ::-webkit-scrollbar,
+.modal::-webkit-scrollbar {
     width: 10px;
 }
 
 
 /* Track */
 
-.modal ::-webkit-scrollbar-track {
+.modal ::-webkit-scrollbar-track,
+.modal::-webkit-scrollbar-track {
     background: transparent;
 }
 
 
 /* Handle */
 
-.modal ::-webkit-scrollbar-thumb {
+.modal ::-webkit-scrollbar-thumb,
+.modal::-webkit-scrollbar-thumb {
     background: var(--color-primary);
 }
 
@@ -95,6 +98,18 @@ main {
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    color: #3953a0;
+}
+
+a:hover {
+    color: var(--color-title);
+}
+
+a:focus {
+    color: #398acc;
+}
+
 body {
     background: #000;
 }
@@ -120,18 +135,31 @@ button {
     text-align: center;
     font-size: 1.2em;
     border: none;
+    display: inline-block;
+    color: #fff;
 }
 
 .btn:hover,
 .btn:focus {
     background: var(--color-epigrafe);
+    color: #fff;
 }
 
 .btn__iniciar {
     position: absolute;
-    color: #fff;
     top: 40px;
     right: 40px;
+}
+
+.btn__volver {
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
 }
 
 .intro,
@@ -148,8 +176,7 @@ button {
     justify-content: flex-end;
     background: var(--bg-fond);
     background-size: cover;
-    position: relative;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
 }
 
@@ -162,15 +189,6 @@ button {
     color: var(--color-text);
     font-size: 1.2em;
     line-height: 1.6em;
-}
-
-@media screen and (max-width: 768px) {
-    .intro__text {
-        overflow: auto;
-        height: 70vh;
-        padding: .5em 1em .5em 0;
-        font-size: 1em;
-    }
 }
 
 .intro__title {
@@ -196,9 +214,45 @@ button {
     }
 }
 
+@media screen and (max-width: 980px) {
+    .intro__image img {
+        max-height: 60vh;
+    }
+}
+
 @media screen and (max-width: 768px) {
+    .intro {
+        flex-direction: column;
+        padding: 0 30px 120px 30px;
+        box-sizing: border-box;
+    }
     .intro__title {
         font-size: 2em;
+    }
+    .intro__text {
+        overflow: auto;
+        height: 63vh;
+        padding: .5em 1em .5em 0;
+        font-size: 1em;
+    }
+    .intro__image img {
+        max-height: inherit;
+        width: 40%;
+        margin: 0;
+        margin-top: 50px;
+    }
+    .col-5 {
+        width: 100%;
+    }
+    .btn__iniciar {
+        bottom: 30px;
+        top: auto;
+        width: 80%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 60px;
+        font-size: 1.5em;
     }
 }
 
@@ -260,6 +314,29 @@ button {
     }
 }
 
+@media screen and (max-width: 768px) {
+    .interactive-map__title {
+        height: 100px;
+        bottom: 57vh;
+    }
+    .interactive-map__title h2 {
+        font-size: 1.5em;
+        margin-top: 60px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .interactive-map__title {
+        position: initial;
+        height: auto;
+        width: 100%;
+        bottom: auto;
+        top: auto;
+        margin: 0 auto;
+        font-size: 1.8em;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .interactive-map__fondo,
     .interactive-map__lineas {
@@ -281,6 +358,14 @@ button {
     visibility: hidden;
     opacity: 0;
     transition: all .6s ease;
+    flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 600px) {
+    .modal {
+        right: 0;
+        top: 100%;
+    }
 }
 
 .modal.show {
@@ -289,10 +374,16 @@ button {
     right: 0;
 }
 
+@media screen and (max-width: 600px) {
+    .modal.show {
+        top: 0;
+    }
+}
+
 .close {
     font-size: 30px;
     color: var(--color-epigrafe);
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 30px;
     cursor: pointer;
@@ -329,6 +420,7 @@ button {
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
     position: absolute;
     z-index: 3;
     top: 0;
@@ -336,7 +428,44 @@ button {
 
 @media screen and (max-width: 600px) {
     .interactive-map ul {
-        position: inherit;
+        position: initial;
+        padding: 0 5%;
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+.element__ounboarding {
+    background: var(--color-primary);
+    color: var(--color-text);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: .85em;
+    width: 130px;
+    font-weight: bold;
+    position: absolute;
+    right: 60%;
+    bottom: 90%;
+}
+
+.element__ounboarding::before {
+    content: "";
+    display: block;
+    border: 10px solid transparent;
+    border-right-color: var(--color-primary);
+    border-top-color: var(--color-primary);
+    position: absolute;
+    top: 100%;
+    left: 70%;
+}
+
+.element__ounboarding p {
+    margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .element__ounboarding {
+        display: none;
     }
 }
 
@@ -348,6 +477,29 @@ button {
     position: absolute;
 }
 
+@media screen and (max-width: 600px) {
+    li.element {
+        position: initial;
+        width: 100%;
+        height: 200px;
+        margin: 0 0 30px 0;
+        box-sizing: border-box;
+        background-size: contain;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    li.element {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    li.element {
+        height: 140px;
+    }
+}
+
 .element:hover,
 .element:focus {
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
@@ -357,12 +509,14 @@ button {
     transform: scale(1.08);
 }
 
-@keyframes movin {
-    0% {
-        background-position: left;
-    }
-    100% {
-        background-position: right;
+@media screen and (min-width: 601px) {
+    @keyframes movin {
+        0% {
+            background-position: left;
+        }
+        100% {
+            background-position: right;
+        }
     }
 }
 
@@ -373,6 +527,19 @@ button {
     left: 16%;
     background: url(../img/momento-0.PNG) no-repeat left;
     background-size: calc(100% * 2);
+}
+
+@keyframes comienza {
+    0% {
+        filter: drop-shadow(0 0 3px #fff);
+    }
+    100% {
+        filter: drop-shadow(0 0 5px #fff);
+    }
+}
+
+.element.inicial {
+    animation: comienza .6s linear alternate infinite;
 }
 
 .element__0.active,
@@ -392,10 +559,10 @@ button {
 }
 
 .element__1 {
-    width: 5.9%;
-    height: 84px;
-    top: 45vw;
-    left: 21.8%;
+    width: 5.2%;
+    height: 75px;
+    top: 48.7vw;
+    left: 22.4%;
     background: url(../img/momento-1.PNG) no-repeat left;
     background-size: calc(100% * 2);
 }
@@ -477,7 +644,7 @@ button {
         top: 470px;
     }
     .element__1 {
-        top: 645px;
+        top: 654px;
     }
     .element__2 {
         top: 590px;
@@ -584,12 +751,48 @@ button {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .element__0 {
+        background: url(../img/mobile/elemento-0-mobile.jpg) center no-repeat;
+    }
+    .element__1 {
+        background: url(../img/mobile/elemento-1-mobile.jpg) center no-repeat;
+    }
+    .element__2 {
+        background: url(../img/mobile/elemento-2-mobile.jpg) center no-repeat;
+    }
+    .element__3 {
+        background: url(../img/mobile/elemento-3-mobile.jpg) center no-repeat;
+    }
+    .element__4 {
+        background: url(../img/mobile/elemento-4-mobile.jpg) center no-repeat;
+    }
+    .element__5 {
+        background: url(../img/mobile/elemento-5-mobile.jpg) center no-repeat;
+    }
+    .element__6 {
+        background: url(../img/mobile/elemento-6-mobile.jpg) center no-repeat;
+    }
+    .element__7 {
+        background: url(../img/mobile/elemento-7-mobile.jpg) center no-repeat;
+    }
+    .element__8 {
+        background: url(../img/mobile/elemento-8-mobile.jpg) center no-repeat;
+    }
+    .element__9 {
+        background: url(../img/mobile/elemento-9-mobile.jpg) center no-repeat;
+    }
+}
+
 .element img {
     width: 100%;
 }
 
-.modal {
-    flex-direction: row-reverse;
+@media screen and (max-width: 600px) {
+    .modal {
+        display: block;
+        overflow: auto;
+    }
 }
 
 .modal__content {
@@ -601,7 +804,6 @@ button {
     padding: 0 5%;
     width: 40%;
     opacity: 0;
-    text-align: center;
     overflow: auto;
     transform: translate(0, 100px);
     transition: all .8s ease-in-out;
@@ -609,33 +811,49 @@ button {
 
 .modal__image img {
     padding: 80px 0 20px 0;
-    height: 70vh;
+    width: 70%;
     margin: 0 auto;
     display: block;
 }
 
-@media screen and (max-width: 1024px) {
-    .modal__image img {
-        height: 60vh;
-    }
+.modal__image span {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
 }
 
-.modal__image span {
-    display: inline-block;
-    margin-bottom: 40px;
+@media screen and (max-width: 1024px) {
+    .modal__image img {
+        width: 90%;
+    }
+    .modal__image span {
+        width: 90%;
+    }
 }
 
 .modal__image i {
     opacity: 0.6;
 }
 
+.modal__image #modalImagenUrl {
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
 .modal__content {
-    padding-top: 80px;
+    padding-top: 60px;
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     transform: translate(-30%, 0);
     transition: all 1s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    .modal__content {
+        transform: translate(0, 30%);
+    }
 }
 
 .modal__content[data-status="Infierno"] {
@@ -648,6 +866,10 @@ button {
 
 .modal__content[data-status="Paraíso"] {
     background: var(--color-Paraiso);
+}
+
+.modal__content[data-status="Paraíso"] .modal__epigrafe {
+    color: #3953a0;
 }
 
 .modal.show .modal__content {
@@ -680,7 +902,7 @@ button {
 .modal__title {
     color: var(--color-title);
     margin: 0;
-    font-size: 4em;
+    font-size: 3.5em;
 }
 
 .modal__status {
@@ -710,6 +932,12 @@ button {
 .modal__epigrafe:before {
     content: '"';
 }
+@media screen and (max-width: 1024px) {
+    .modal__status,
+    .modal__title {
+        font-size: 2.5em;
+    }
+}
 @media screen and (max-width: 768px) {
     .modal__content {
         padding-top: 40px;
@@ -733,8 +961,24 @@ button {
         font-size: 1em;
         line-height: 1.4em;
     }
+}
+@media screen and (max-width: 600px) {
+    .modal__content,
+    .modal__image {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .modal__image {
+        padding: 0;
+    }
     
     .modal__image img {
-        height: 50vh;
+        height: auto;
+        width: 60%;
+    }
+    
+    .modal__image span {
+        width: 60%;
     }
 }
