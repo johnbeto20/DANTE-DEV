@@ -1,5 +1,4 @@
 :root {
-    --bg-fond: url(../img/fondo-vinieta-inicio.jpg) no-repeat bottom center;
     --color-primary: #e7975a;
     --blanco: #fff;
     --color-text: #281c10;
@@ -171,10 +170,9 @@ button {
 
 .intro {
     display: flex;
-    height: 100%;
     align-items: flex-end;
     justify-content: flex-end;
-    background: var(--bg-fond);
+    background: url(../img/fondo-vinieta-inicio.jpg) no-repeat bottom center;
     background-size: cover;
     z-index: 3;
     position: absolute;
