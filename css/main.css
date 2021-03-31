@@ -195,6 +195,7 @@ button {
     background-size: cover;
     z-index: 3;
     position: absolute;
+    top: 0;
 }
 
 .intro__image {
