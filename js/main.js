@@ -2,7 +2,6 @@ window.addEventListener('load', function(e) {
 
     const Elements = document.getElementById("elements").getElementsByTagName('li');
     const ounboarding = document.getElementById("ounboardingText");
-    const Modal = document.getElementById("modal");
     const CloseModal = document.getElementById("closeModal");
     const ModalContent = document.getElementById("modalContent");
     const ModalStatus = document.getElementById("modalStatus");
@@ -17,9 +16,14 @@ window.addEventListener('load', function(e) {
     const ModalText2 = document.getElementById("modalText2");
     const BtnStart = document.getElementById("btnStart");
     const Section1 = document.getElementById("section1");
+    const Section2 = document.getElementById("section2");
+    const Modal = document.getElementById("modal");
     const ModalText = document.getElementById("modalText");
 
+    Section2.style.display = "none";
+
     BtnStart.addEventListener("click", function() {
+        Section2.style.display = "block";
         Section1.classList.add("hideIntro");
     })
 
