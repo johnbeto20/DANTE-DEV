@@ -154,11 +154,16 @@ button {
     text-decoration: none;
     position: absolute;
     top: 20px;
-    left: 20px;
+    right: 20px;
     z-index: 3;
     padding: 0 15px;
     height: 35px;
     line-height: 35px;
+    background: #3953a0;
+}
+
+.btn__volver:hover {
+    background: #1d306b;
 }
 
 .intro,
@@ -434,12 +439,12 @@ button {
 }
 
 .element__ounboarding {
-    background: var(--color-primary);
+    background: #fff;
     color: var(--color-text);
     border-radius: 10px;
     padding: 10px;
     font-size: .85em;
-    width: 130px;
+    width: 70px;
     font-weight: bold;
     position: absolute;
     right: 60%;
@@ -449,12 +454,12 @@ button {
 .element__ounboarding::before {
     content: "";
     display: block;
-    border: 10px solid transparent;
-    border-right-color: var(--color-primary);
-    border-top-color: var(--color-primary);
+    border: 6px solid transparent;
+    border-right-color: #fff;
+    border-top-color: #fff;
     position: absolute;
     top: 100%;
-    left: 70%;
+    left: 75%;
 }
 
 .element__ounboarding p {
@@ -529,10 +534,10 @@ button {
 
 @keyframes comienza {
     0% {
-        filter: drop-shadow(0 0 3px #fff);
+        filter: drop-shadow(0 0 5px #fff);
     }
     100% {
-        filter: drop-shadow(0 0 5px #fff);
+        filter: drop-shadow(0 0 10px #fff);
     }
 }
 
