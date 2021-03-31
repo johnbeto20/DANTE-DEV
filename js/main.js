@@ -63,7 +63,7 @@ window.addEventListener('load', function(e) {
                 ModalContent.setAttribute("data-status", datos[e].status)
                 ModalStatus.innerHTML = datos[e].status;
                 ModalTitle.innerHTML = datos[e].title;
-                ModalIcon.src = `img/momento-${e}-modal.png`;
+                ModalIcon.src = `img/momento-${e}-modal.PNG`;
                 ModalEpigrafe.innerHTML = datos[e].epigrafe;
                 ModalImage.src = `img/gallery/${datos[e].image}`;
                 ModalImage.setAttribute("alt", datos[e].imagenText);

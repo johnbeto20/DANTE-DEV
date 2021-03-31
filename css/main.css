@@ -894,10 +894,10 @@ button {
 
 .modal__icon {
     width: 140px;
+    display: block;
 }
 
 .modal__icon img {
-    width: 100%;
     width: 100%;
     height: auto;
     display: block;
