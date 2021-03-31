@@ -931,7 +931,7 @@ button {
     color: var(--color-text);
     font-size: 1.2em;
     line-height: 1.6em;
-    min-height: 250px;
+    min-height: 150px;
 }
 
 .modal__epigrafe:after,
