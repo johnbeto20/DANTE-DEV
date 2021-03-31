@@ -800,6 +800,7 @@ button {
 .modal__content {
     padding: 0 5%;
     width: 60%;
+    overflow: auto;
 }
 
 .modal__image {
@@ -930,6 +931,7 @@ button {
     color: var(--color-text);
     font-size: 1.2em;
     line-height: 1.6em;
+    min-height: 250px;
 }
 
 .modal__epigrafe:after,
