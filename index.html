@@ -78,6 +78,12 @@
         <span id="closeModalpicture" class="close" aria-label="Cerrar ventana" tabindex="8">X</span>
         <img src="img/mobile/imagen-completa-mobile.jpg" alt="imagen del picture completo">
     </section>
+    <script type="text/javascript">
+        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1; //&& ua.indexOf("mobile");
+        if (isAndroid) {
+            document.write('<meta name="viewport" content="width=device-width,height=' + window.innerHeight + ', initial-scale=1.0">');
+        }
+    </script>
     <script src="js/main.js"></script>
 </body>
 
