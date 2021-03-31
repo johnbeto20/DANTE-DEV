@@ -39,8 +39,8 @@ window.addEventListener('load', function(e) {
                 this.classList.remove("inicial");
                 ounboarding.style.display = "none";
             }
-            showInfo(index);
             Modal.classList.add("show");
+            showInfo(index);
         });
         Elements[index].addEventListener("mouseover", function() {
             this.classList.add("active");
