@@ -187,6 +187,16 @@ button {
     overflow: hidden;
 }
 
+@media screen and (max-width: 600px) {
+    .intro,
+    .interactive-map,
+    .modal {
+        width: 100%;
+        height: auto;
+        overflow: auto;
+    }
+}
+
 .intro {
     display: flex;
     align-items: flex-end;
