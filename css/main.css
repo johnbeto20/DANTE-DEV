@@ -187,16 +187,6 @@ button {
     overflow: hidden;
 }
 
-@media screen and (max-width: 600px) {
-    .intro,
-    .interactive-map,
-    .modal {
-        width: 100%;
-        height: auto;
-        overflow: auto;
-    }
-}
-
 .intro {
     display: flex;
     align-items: flex-end;
@@ -387,6 +377,7 @@ button {
     opacity: 0;
     transition: all .6s ease;
     flex-direction: row-reverse;
+    height: 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -401,6 +392,7 @@ button {
     visibility: visible;
     opacity: 1;
     right: 0;
+    height: 100%;
 }
 
 @media screen and (max-width: 600px) {
