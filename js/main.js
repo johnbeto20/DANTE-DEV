@@ -3,6 +3,7 @@ window.addEventListener('load', function(e) {
     const Elements = document.getElementById("elements").getElementsByTagName('li');
     const ounboarding = document.getElementById("ounboardingText");
     const CloseModal = document.getElementById("closeModal");
+    const CloseModalpicture = document.getElementById("closeModalpicture");
     const ModalContent = document.getElementById("modalContent");
     const ModalStatus = document.getElementById("modalStatus");
     const ModalTitle = document.getElementById("modalTitle");
@@ -19,12 +20,19 @@ window.addEventListener('load', function(e) {
     const Section2 = document.getElementById("section2");
     const Modal = document.getElementById("modal");
     const ModalText = document.getElementById("modalText");
-
-    Section2.style.display = "none";
+    const picture = document.getElementById("picture");
+    const btnpicture = document.getElementById("btnpicture")
 
     BtnStart.addEventListener("click", function() {
         Section2.style.display = "block";
         Section1.classList.add("hideIntro");
+        Section1.addEventListener("animationend", function() {
+            this.style.display = "none";
+        })
+    })
+
+    btnpicture.addEventListener("click", function() {
+        picture.classList.add("show");
     })
 
     CloseModal.addEventListener("click", function() {
@@ -41,6 +49,10 @@ window.addEventListener('load', function(e) {
         ModalText1.innerHTML = "";
         ModalTitleAbout.innerHTML = "";
         ModalText2.innerHTML = "";
+    })
+
+    CloseModalpicture.addEventListener("click", function() {
+        picture.classList.remove("show");
     })
 
     Elements[0].classList.add("inicial");
