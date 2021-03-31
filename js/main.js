@@ -29,6 +29,18 @@ window.addEventListener('load', function(e) {
 
     CloseModal.addEventListener("click", function() {
         Modal.classList.remove("show");
+        ModalContent.setAttribute("data-status", "")
+        ModalStatus.innerHTML = "";
+        ModalTitle.innerHTML = "";
+        ModalIcon.src = `img/momento-${e}-modal.PNG`;
+        ModalEpigrafe.innerHTML = "";
+        ModalImage.src = `img/gallery/${datos[e].image}`;
+        ModalImage.setAttribute("alt", datos[e].imagenText);
+        modalImagenText.innerHTML = "";
+        ModalImagenUrl.innerHTML = "";
+        ModalText1.innerHTML = "";
+        ModalTitleAbout.innerHTML = "";
+        ModalText2.innerHTML = "";
     })
 
     Elements[0].classList.add("inicial");
