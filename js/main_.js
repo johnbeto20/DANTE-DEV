@@ -21,9 +21,7 @@ window.addEventListener('load', function(e) {
     const Modal = document.getElementById("modal");
     const ModalText = document.getElementById("modalText");
     const picture = document.getElementById("picture");
-    const btnpicture = document.getElementById("btnpicture");
-
-    let elements = [];
+    const btnpicture = document.getElementById("btnpicture")
 
     BtnStart.addEventListener("click", function() {
         Section2.style.display = "block";
@@ -42,7 +40,10 @@ window.addEventListener('load', function(e) {
         ModalContent.setAttribute("data-status", "")
         ModalStatus.innerHTML = "";
         ModalTitle.innerHTML = "";
+        ModalIcon.src = `img/momento-${e}-modal.PNG`;
         ModalEpigrafe.innerHTML = "";
+        ModalImage.src = `img/gallery/${datos[e].image}`;
+        ModalImage.setAttribute("alt", datos[e].imagenText);
         modalImagenText.innerHTML = "";
         ModalImagenUrl.innerHTML = "";
         ModalText1.innerHTML = "";
@@ -62,7 +63,8 @@ window.addEventListener('load', function(e) {
                 this.classList.remove("inicial");
                 ounboarding.style.display = "none";
             }
-            showElement(index);
+            Modal.classList.add("show");
+            showInfo(index);
         });
         Elements[index].addEventListener("mouseover", function() {
             this.classList.add("active");
@@ -72,47 +74,29 @@ window.addEventListener('load', function(e) {
         });
     }
 
-    async function showElement(index) {
-        if (elements.length == 0) {
-            elements = await getElements();
-        }
-        showModal(index);
-    }
-
-    function getElements() {
-        return new Promise(resolve => {
-            getElementsFromFile(resolve);
-        });
-    }
-
-    function getElementsFromFile(callback) {
+    function showInfo(e) {
         const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'data.json', true);
+        xhttp.send()
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                let elements = JSON.parse(this.responseText);
-                callback(elements);
+                let datos = JSON.parse(this.responseText);
+                //traer datos
+                ModalText.scrollTo(0, 0);
+                Modal.scrollTo(0, 0);
+                ModalContent.setAttribute("data-status", datos[e].status)
+                ModalStatus.innerHTML = datos[e].status;
+                ModalTitle.innerHTML = datos[e].title;
+                ModalIcon.src = `img/momento-${e}-modal.PNG`;
+                ModalEpigrafe.innerHTML = datos[e].epigrafe;
+                ModalImage.src = `img/gallery/${datos[e].image}`;
+                ModalImage.setAttribute("alt", datos[e].imagenText);
+                modalImagenText.innerHTML = datos[e].imagenText;
+                ModalImagenUrl.innerHTML = datos[e].imagenUrl;
+                ModalText1.innerHTML = datos[e].content.text1;
+                ModalTitleAbout.innerHTML = datos[e].content.titleAbout;
+                ModalText2.innerHTML = datos[e].content.text2;
             }
         }
-        xhttp.open('GET', 'data.json', true);
-        xhttp.send(null);
-    }
-
-    function showModal(index) {
-        ModalText.scrollTo(0, 0);
-        Modal.scrollTo(0, 0);
-        ModalContent.setAttribute("data-status", elements[index].status)
-        ModalStatus.innerHTML = elements[index].status;
-        ModalTitle.innerHTML = elements[index].title;
-        ModalIcon.src = `img/momento-${index}-modal.PNG`;
-        ModalEpigrafe.innerHTML = elements[index].epigrafe;
-        ModalImage.src = `img/gallery/${elements[index].image}`;
-        ModalImage.setAttribute("alt", elements[index].imagenText);
-        modalImagenText.innerHTML = elements[index].imagenText;
-        ModalImagenUrl.innerHTML = elements[index].imagenUrl;
-        ModalText1.innerHTML = elements[index].content.text1;
-        ModalTitleAbout.innerHTML = elements[index].content.titleAbout;
-        ModalText2.innerHTML = elements[index].content.text2;
-
-        Modal.classList.add("show");
     }
 })
